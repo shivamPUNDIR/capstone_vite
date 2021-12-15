@@ -7,7 +7,6 @@ import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 import Sync from './componets/Sync/index';
 import { useLoadScript } from '@react-google-maps/api'
 
-
 SmoothScrollbar.use(OverscrollPlugin);
 function App() {
   const [currentImage, setCurrentImage] = useState(0)
@@ -20,16 +19,15 @@ function App() {
   return (
     <div style={{ position: 'relative' }}>
 
-      <Sync center={{ lat: 49.2853171, lng: -123.1119202 }} isLoaded={isLoaded} loadError={loadError}></Sync>
-      {/* <div className='absolute top-4 left-4 border-2 border-yellow-300 font-bold text-3xl p-3 text-white' style={{zIndex:10003}}>Thapar University</div> */}
+      <Sync center={{ lat: 30.351956, lng: 76.370808 }} isLoaded={isLoaded} loadError={loadError}></Sync>
+      {/* <div className='absolute p-3 text-3xl font-bold text-white border-2 border-yellow-300 top-4 left-4' style={{zIndex:10003}}>Thapar University</div> */}
 
-      <div className='absolute top-2 right-16 flex gap-4 z-50 ' onClick={() => setC((prevState) => { console.log(prevState); return prevState + 1 })}>
-        <div className='shadow-btn-shadow z-auto  font-bold text-lg p-2 text-white bg-yellow-500 transform duration-500 ease-in-out hover:scale-105 cursor-pointer'>Learn More</div>
-        <div className='shadow-btn-shadow z-auto  font-bold text-lg p-2 text-white bg-green-bg-btn transform duration-500 ease-in-out hover:scale-105 cursor-pointer'>Visit Thapar.edu</div>
-        <div className='shadow-btn-shadow z-auto  font-bold text-lg p-2 text-white bg-blue-bg-btn transform duration-500 ease-in-out hover:scale-105 cursor-pointer'>Apply Online</div>
+      <div className='absolute z-50 flex top-2 right-16 gap-4 ' onClick={() => setC((prevState) => { console.log(prevState); return prevState + 1 })}>
+        <div className='z-auto p-2 text-lg font-bold text-white bg-yellow-500 cursor-pointer shadow-btn-shadow transform duration-500 ease-in-out hover:scale-105'>Learn More</div>
+        <div className='z-auto p-2 text-lg font-bold text-white cursor-pointer shadow-btn-shadow bg-green-bg-btn transform duration-500 ease-in-out hover:scale-105'>Visit Thapar.edu</div>
+        <div className='z-auto p-2 text-lg font-bold text-white cursor-pointer shadow-btn-shadow bg-blue-bg-btn transform duration-500 ease-in-out hover:scale-105'>Apply Online</div>
       </div>
       
-
 
       <div>
         {/* <Thumbnail currentImage={currentImage} thumbNum={thumbNum}/> */}
