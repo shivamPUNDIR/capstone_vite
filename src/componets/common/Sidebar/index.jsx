@@ -1,40 +1,22 @@
 //import { maxHeight } from "@mui/system";
 import { useState, useEffect } from "react";
 import Box from "./Box";
-
-const Sidebar = ({ panoData, setPanoData, data, ...props }) => {
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import Modal from "../Modal";
+import { data_hostel } from '../../../assets/data_sidebar'
+const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...props }) => {
   const [show, setShow] = useState(false);
 
-  // const handleClick = (id) => {
-  // setCurrentPosition(id);
-  //route to next image...
-  //}
-
-  const autoClose = (t) => {
-    if (show) {
-      const time = setTimeout(() => {
-        setShow(false);
-      }, t);
-    }
-  };
+  let hostel_box = []
+  let menuPos = show === false ? "left-[15px]" : "left-[16%]"
   return (
     <>
-      <div
-        className={`absolute left-0 cursor-pointer top-0 h-screen ${
-          show ? "hidden" : "visible"
-        }`}
-        style={{
-          zIndex: 10000000,
-          width: "10%",
-        }}
-        onMouseEnter={() => {
-          setShow(true);
-        }}
+      <Modal data="Hello world" image="urkl" modal_title="hello" button_title="i" />
+      <div className={`absolute z-[1000000] p-3 text-sm font-bold text-white border-2 border-yellow-300 ${menuPos} top-2 bg-sidebar-bg rounded-full cursor-pointer `}
+        onClick={() => { setShow(!show) }}
       >
-        <div
-          style={{ left: "10%", top: "30%" }}
-          className="absolute sidebar_control"
-        ></div>
+        {show === true ? <MenuOpenIcon /> : <MenuIcon />}
       </div>
       <div
         style={{
@@ -45,7 +27,6 @@ const Sidebar = ({ panoData, setPanoData, data, ...props }) => {
           background:
             "linear-gradient(to left, rgba(8, 19, 30, 0), rgba(8, 19, 30, 0.3))",
         }}
-        onMouseLeave={() => autoClose(1000)}
       >
         <div
           className={`opacity-100 shadow-xl absolute bg-sidebar-bg h-full top-0 left-0 `}
@@ -59,22 +40,30 @@ const Sidebar = ({ panoData, setPanoData, data, ...props }) => {
               position: "relative",
               width: "100%",
             }}
-            onClick={() => autoClose(0)}
+          // onClick={() => autoClose(0)}
           >
-            {[9, 10, 11, 12, 13].map((id) => {
+
+            {[9, 10].map((id) => {
               return <Box key={id} type={"empty"} />;
             })}
-
+            <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 opacity-[0.5]">
+              <h3 className="text-[white] text-3xl text-center bg-yellow-500">Tour</h3>
+            </div>
             <Box
-              id={data[0]}
+              onClick={() => setTour(true)}
+              id="tour"
               type={"data"}
               imageUrl="./src/assets/hostel_m.jpg"
               handleClick={(id) => {
-                setPanoData(id);
+                setTour(true);
+                setCurrentSidebarItem("tour");
               }}
-              panoData={panoData}
+              currentSidebarItem={currentSidebarItem}
+            // content={data_hostel[].title}
             />
-
+            {/* <div className="text-center w-[100%] h-auto p-2  bg-yellow-500 bg-green-bg-btn opacity-[0.5]">
+              <h3 className="text-[white] text-3xl m-auto text-center">Places</h3>
+            </div>
             <Box
               id={data[1]}
               type={"data"}
@@ -83,16 +72,39 @@ const Sidebar = ({ panoData, setPanoData, data, ...props }) => {
                 setPanoData(id);
               }}
               panoData={panoData}
-            />
-            <Box
-              id={data[2]}
-              type={"data"}
-              imageUrl="https://www.thapar.edu/files/banner/1/15005501011.jpg"
-              handleClick={(id) => {
-                setPanoData(id);
-              }}
-              panoData={panoData}
-            />
+            /> */}
+            {/* <div className="border-solid border-white border-[4px]  float-right m-[10%] text-center w-[80%] h-[50px] p-1">
+              <h3 className="text-[white] text-3xl">Hostels</h3>
+            </div> */}
+            <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 bg-blue-bg-btn opacity-[0.5]">
+              <h3 className="text-[white] text-3xl m-auto text-center">Hostels</h3>
+            </div>
+            {
+              Object.keys(data_hostel).forEach(function (prop) {
+
+                hostel_box.push(<Box
+                  // onClick={() => setTour(false)}
+                  id={prop}
+                  type={"data"}
+                  imageUrl={data_hostel[prop].thumbnail}
+                  handleClick={(item) => {
+                    setTour(false);
+                    setCurrentSidebarItem(item);
+                  }}
+                  currentSidebarItem={currentSidebarItem}
+                  content={data_hostel[prop].title}
+                />)
+              })
+            }
+            {
+              hostel_box.map((hostel, indx) => {
+                return hostel
+              })
+
+
+            }
+
+
           </div>
 
           <div

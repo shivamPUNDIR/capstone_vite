@@ -3,47 +3,52 @@ import Sidebar from "./../common/Sidebar/index";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Map as MapStyle } from "../map";
-import Modal from "../common/Modal";
+import Gallery from "../Gallery";
+// import { GalleryData } from '../../assets/data.js'
+import { data_hostel } from '../../assets/data_sidebar'
+import { Pannellum } from "pannellum-react";
 const Sync = ({ center, isLoaded, loadError, ...props }) => {
-  const [panoData, setPanoData] = useState({
-    panoID: "",
-    position: {
-      lat: "",
-      lng: "",
-    },
-    links: "",
-  });
+  const [tour, setTour] = useState(true);
+  const [currentSidebarItem, setCurrentSidebarItem] = useState("tour")
 
-  const handlePanoChange = (data) => {
-    setPanoData(data);
-  };
-  useEffect(() => {
-    console.log(panoData);
-  }, [panoData]);
-
-  const data = [
-    { lat: 49.28523341995621, lng: -123.1119102013529 },
-    { lat: 49.28516211197906, lng: -123.112069442232 },
-    { lat: 49.28529113824827, lng: -123.111846124286 },
-  ];
 
   return (
     <div>
-      <Sidebar panoData={panoData} setPanoData={handlePanoChange} data={data} />
-      <Map
+      <Sidebar currentSidebarItem={currentSidebarItem} setCurrentSidebarItem={setCurrentSidebarItem} tour={tour} setTour={setTour} />
+      {tour ? <Map
         center={center}
-        panoData={panoData}
-        setPanoData={handlePanoChange}
+        // panoData={panoData}
+        // setPanoData={handlePanoChange}
         isLoaded={isLoaded}
         loadError={loadError}
       ></Map>
-      <MapStyle
+        :
+        <div className="z-[0] w-full h-full">
+          <Pannellum
+            width="100%"
+            height="100vh"
+            image={data_hostel[currentSidebarItem].gallery[0].path}
+            pitch={10}
+            yaw={180}
+            hfov={110}
+            autoLoad
+            showZoomCtrl={false}
+            onLoad={() => {
+
+            }}
+          />
+        </div>
+      }
+      {/* <MapStyle
         panoData={panoData}
         handlePanoChange={handlePanoChange}
         center={center}
         data={data}
-      />
-      <Modal data="Hello world" image = "urkl" modal_title="hello" button_title="i"/>
+      /> */}
+
+      {
+        !tour && <Gallery currentSidebarItem={currentSidebarItem} />
+      }
     </div>
   );
 };

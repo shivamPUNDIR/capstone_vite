@@ -1,24 +1,25 @@
 import React from "react";
+import InfoIcon from '@mui/icons-material/Info';
 
 export default function Modal(props) {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
       <button
-        className= "absolute top-[45%] right-[10px] z-[100] px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase bg-pink-500 rounded rounded-full shadow outline-none  top-500 active:bg-pink-600 hover:shadow-lg focus:outline-none ease-linear transition-all duration-150"
+        className="absolute top-[45%] right-[10px] z-[100] px-3 py-3 mb-1 mr-1 text-sm font-bold text-white bg-sidebar-bg rounded-full"
         type="button"
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal(!showModal)}
       >
-        {props.button_title}
+        <InfoIcon />
       </button>
       {showModal ? (
         <>
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none"
+            className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none "
           >
-            <div className="relative w-auto max-w-6xl mx-auto my-6">
+            <div className="relative w-auto max-w-6xl mx-auto my-6 ">
               {/*content*/}
-              <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
+              <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none ">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200">
                   <h3 className="text-3xl font-semibold">
@@ -60,7 +61,7 @@ export default function Modal(props) {
 
                       * */
                   }
-                                 </div>
+                </div>
               </div>
             </div>
           </div>

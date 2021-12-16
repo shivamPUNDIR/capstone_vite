@@ -1,27 +1,17 @@
 import React from "react";
 import loc from "./../assets/loc.svg";
 import loc1 from "./../assets/loc1.svg";
-import map from "./../assets/map.svg";
+import MapIcon from '@mui/icons-material/Map';
 import {
   GoogleMap,
   useLoadScript,
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import RoomIcon from "@mui/icons-material/Room";
-import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
+
 import "@reach/combobox/styles.css";
 import mapStyles from "./mapStyles";
-import { Button } from "@material-ui/core";
-import { buttonClasses } from "@mui/material";
-// import { formatRelative } from "date-fns";
-// import {
-//   Combobox,
-//   ComboboxInput,
-//   ComboboxPopover,
-//   ComboboxList,
-//   ComboboxOption,
-// } from "@reach/combobox";
+
 
 const mapContainerStyle = {
   height: "100%",
@@ -112,17 +102,8 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
             position: "relative",
           }}
         >
-          <button
-            style={{
-              position: "absolute",
-              right: 60,
-              bottom: -80,
-              zIndex: 1000,
-              borderRadius: "50%",
-              border: "2px solid #000",
-              height: "60px",
-              width: "60px",
-            }}
+          <button className="absolute right-[60px] bottom-[-80px] z-[1000] rounded-full border-solid border-2 h-[60px] w-[60px] bg-sidebar-bg text-[white]"
+
             onClick={(e) => {
               let elem = document.querySelectorAll("#mapContainer>div");
               let toggle =
@@ -130,7 +111,7 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
               elem[0].style.visibility = toggle;
             }}
           >
-            <img src={map} />
+            <MapIcon />
           </button>
         </div>
       </div>
