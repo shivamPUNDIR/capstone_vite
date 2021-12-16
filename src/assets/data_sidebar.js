@@ -1,4 +1,5 @@
 let base_hostel = "src/assets/Sidebar/Hostels/"
+let base_tour = "src/assets/Tour/"
 export let data_hostel = {
 
 
@@ -97,3 +98,4 @@ export let data_hostel = {
 
 }
 // exports.data_hostel = data_hostel;
+export let data_tour = `${base_tour}`

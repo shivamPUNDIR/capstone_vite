@@ -46,7 +46,7 @@ outline: 1px solid slategrey !important;
   display: inline-block;
   margin: 40px;
   padding: 40px;
-  box-shadow: 15px -15px 0 0 tomato inset;
+  box-shadow: 15px -15px 0 0 white inset;
 }
 .arrow--left {
   transform: rotate(45deg);
@@ -59,11 +59,11 @@ outline: 1px solid slategrey !important;
 }
 .arrow--up {
   
-  transform:rotate3d(1,0,0,240deg) rotateZ(280deg);
+  transform:rotate3d(1,0,0,240deg) rotateZ(320deg);
   top: 25px;
 }
 .arrow--up:hover{
-  box-shadow: 15px -15px 0 0 #fff inset;;
+  box-shadow: 25px -25px 0 0 #fff inset;;
 }
 .arrow--down {
   transform: rotate(-45deg);

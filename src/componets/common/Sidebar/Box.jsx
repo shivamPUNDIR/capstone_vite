@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Radio from '@material-ui/core/Radio';
 import './Box.scss'
 const Box = ({ imageUrl, handleClick, currentSidebarItem, ...props }) => {
 
@@ -29,6 +27,9 @@ const Box = ({ imageUrl, handleClick, currentSidebarItem, ...props }) => {
                 id="box"
                 onClick={() => handleClick(props.id)}
             >
+                <div className='absolute bottom-5 left-[50%] translate-x-[-55%] text-[white] z-[100000] text-3xl'>
+                    {props.content}
+                </div>
                 <div
                     style={{
                         backgroundImage: `url("${imageUrl}")`,
@@ -40,8 +41,6 @@ const Box = ({ imageUrl, handleClick, currentSidebarItem, ...props }) => {
                 >
 
                 </div>
-                {/* {currentPosition?.position?.lat === props.id.lat && currentPosition?.position?.lng === props.id.lng ? 
-                <RadioButtons selected='true' /> : <RadioButtons selected='false' />} */}
             </div>
         )
 }

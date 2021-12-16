@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Map as MapStyle } from "../map";
 import Gallery from "../Gallery";
+import Tour from "../Tour";
 // import { GalleryData } from '../../assets/data.js'
 import { data_hostel } from '../../assets/data_sidebar'
 import { Pannellum } from "pannellum-react";
@@ -17,13 +18,15 @@ const Sync = ({ center, isLoaded, loadError, ...props }) => {
   return (
     <div>
       <Sidebar currentSidebarItem={currentSidebarItem} setCurrentSidebarItem={setCurrentSidebarItem} tour={tour} setTour={setTour} coords={coords} setCoords={setCoords} />
-      {tour ? <Map
-        center={center}
+      {tour ?
+        <Tour />
+        //  ? <Map
+        // center={center}
         // panoData={panoData}
         // setPanoData={handlePanoChange}
-        isLoaded={isLoaded}
-        loadError={loadError}
-      ></Map>
+        // isLoaded={isLoaded}
+        //  loadError={loadError}
+        // ></Map> */}
         :
         <div className="z-[0] w-full h-full">
           <Pannellum

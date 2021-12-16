@@ -46,7 +46,7 @@ const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...
             {[9, 10].map((id) => {
               return <Box key={id} type={"empty"} />;
             })}
-            <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 opacity-[0.5]">
+            <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 opacity-[0.8]">
               <h3 className="text-[white] text-3xl text-center bg-yellow-500">Tour</h3>
             </div>
             <Box
@@ -76,7 +76,7 @@ const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...
             {/* <div className="border-solid border-white border-[4px]  float-right m-[10%] text-center w-[80%] h-[50px] p-1">
               <h3 className="text-[white] text-3xl">Hostels</h3>
             </div> */}
-            <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 bg-blue-bg-btn opacity-[0.5]">
+            <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 bg-blue-bg-btn opacity-[0.8]">
               <h3 className="text-[white] text-3xl m-auto text-center">Hostels</h3>
             </div>
             {
