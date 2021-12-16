@@ -39,6 +39,11 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
       document.getElementById("mapContainer").style.visibility = "visible";
     }, 2000);
   }, []);
+  // useEffect(() => {
+
+  //   props.setCoords(center)
+
+  // }, [center])
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
@@ -78,12 +83,12 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
           options={options}
         >
           {/* <Marker
-          // onPositionChanged={panTo(panoData.position)}
-          icon={loc}
-          position={panoData.position}
+            // onPositionChanged={panTo(panoData.position)}
+            icon={loc1}
+            position={center}
 
-        />  {RoomIcon} */}
-          {data.map((indx, elem) => {
+          /> */}
+          {/* {data.map((indx, elem) => {
             // console.log()
             return panoData.position.lat === indx.lat &&
               panoData.position.lng === indx.lng ? (
@@ -91,11 +96,11 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
                 //
                 icon={loc1}
                 position={indx}
-              />
-            ) : (
-              <Marker icon={loc} position={indx} />
-            );
-          })}
+              /> */}
+          {/* ) : ( */}
+          <Marker icon={loc} position={center} />
+          {/* ); */}
+          {/* })} */}
         </GoogleMap>
         <div
           style={{

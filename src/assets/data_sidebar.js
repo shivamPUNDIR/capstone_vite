@@ -9,6 +9,7 @@ export let data_hostel = {
             lat: "",
             lng: ""
         },
+        info: "",
         gallery: [
             {
                 path: `${base_hostel}/H/1.jpg`,
@@ -39,6 +40,7 @@ export let data_hostel = {
             lat: "",
             lng: ""
         },
+        info: "",
         gallery: [
             {
                 path: `${base_hostel}/K/1.jpg`,
@@ -63,9 +65,10 @@ export let data_hostel = {
     j: {
         thumbnail: `${base_hostel}J/thumb_J.jfif`,
         title: "Hostel J",
+        info: "Hostel Jannat is new multistoried boys hostel of Thapar university, is one of the finest hostel in the country with state-of-the-art facilities. The foundation stone of Hostel J was laid by Hon'ble Shri Kapil Sibal (Minister of Science & Technology and Earth Sciences Government of India) on Oct' 24,2006 in the presence of Shri Gautam Thapar (Chairman,BILT). And was inaugrated by Mrs. Preneet Kaur (Minister of State For External Affairs, Government of India) on Nov' 23,2009. ",
         coords: {
-            lat: "",
-            lng: ""
+            lat: "30.3544205",
+            lng: "76.3644125"
         },
         gallery: [
             {

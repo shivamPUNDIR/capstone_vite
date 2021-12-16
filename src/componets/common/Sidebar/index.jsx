@@ -12,7 +12,7 @@ const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...
   let menuPos = show === false ? "left-[15px]" : "left-[16%]"
   return (
     <>
-      <Modal data="Hello world" image="urkl" modal_title="hello" button_title="i" />
+      <Modal data={data_hostel[currentSidebarItem]?.info} image="urkl" modal_title={data_hostel[currentSidebarItem]?.title} button_title="i" />
       <div className={`absolute z-[1000000] p-3 text-sm font-bold text-white border-2 border-yellow-300 ${menuPos} top-2 bg-sidebar-bg rounded-full cursor-pointer `}
         onClick={() => { setShow(!show) }}
       >
@@ -90,6 +90,7 @@ const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...
                   handleClick={(item) => {
                     setTour(false);
                     setCurrentSidebarItem(item);
+                    props.setCoords(data_hostel[prop].coords)
                   }}
                   currentSidebarItem={currentSidebarItem}
                   content={data_hostel[prop].title}

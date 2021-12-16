@@ -20,7 +20,7 @@ function App() {
   return (
     <div style={{ position: 'relative' }}>
 
-      <Sync center={{ lat: 30.352414, lng: 76.370303 }} isLoaded={isLoaded} loadError={loadError}></Sync>
+      <Sync center={{ lat: 30.3518788, lng: 76.3722509 }} isLoaded={isLoaded} loadError={loadError}></Sync>
 
 
       {/* <div className='absolute z-auto p-3 text-3xl font-bold text-white border-2 border-yellow-300 left-[50%] top-2 bg-sidebar-bg ' style={{ zIndex: 10003 }}>Thapar University</div> */}

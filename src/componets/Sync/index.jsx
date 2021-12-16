@@ -10,11 +10,13 @@ import { Pannellum } from "pannellum-react";
 const Sync = ({ center, isLoaded, loadError, ...props }) => {
   const [tour, setTour] = useState(true);
   const [currentSidebarItem, setCurrentSidebarItem] = useState("tour")
+  const [currentItemOnMap, setCurrentItemOnMap] = useState({})
+  const [coords, setCoords] = useState(center)
 
 
   return (
     <div>
-      <Sidebar currentSidebarItem={currentSidebarItem} setCurrentSidebarItem={setCurrentSidebarItem} tour={tour} setTour={setTour} />
+      <Sidebar currentSidebarItem={currentSidebarItem} setCurrentSidebarItem={setCurrentSidebarItem} tour={tour} setTour={setTour} coords={coords} setCoords={setCoords} />
       {tour ? <Map
         center={center}
         // panoData={panoData}
@@ -39,12 +41,13 @@ const Sync = ({ center, isLoaded, loadError, ...props }) => {
           />
         </div>
       }
-      {/* <MapStyle
-        panoData={panoData}
-        handlePanoChange={handlePanoChange}
-        center={center}
-        data={data}
-      /> */}
+      <MapStyle
+        // panoData={panoData}
+        // handlePanoChange={handlePanoChange}
+        center={coords}
+        setCoords={setCoords}
+      // data={data}
+      />
 
       {
         !tour && <Gallery currentSidebarItem={currentSidebarItem} />
