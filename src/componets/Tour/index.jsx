@@ -5,7 +5,7 @@ import { hotspot_data, graph } from '../../assets/hotspot_data';
 const Tour = (props) => {
     // const [currImg, setCurrImg] = useState(hotspot_data[0][0].id)
     const [currPath, setCurrPath] = useState('');
-    const [currentImage, setCurrentImage] = useState(9)
+    const [currentImage, setCurrentImage] = useState(0)
     // const ref = useRef(null)
     const bast_path = "src/assets/Tour"
     useEffect(() => {
