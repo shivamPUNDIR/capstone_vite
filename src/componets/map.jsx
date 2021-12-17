@@ -28,7 +28,7 @@ const options = {
   zoomControl: true,
 };
 
-export function Map({ panoData, handlePanoChange, center, data, ...props }) {
+export function Map({ panoData, handlePanoChange, currLatLng,setCurrLatLng, ...props }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCm9q-X39wU7UH_xk0J7LBqgvW23M38Px0",
     // libraries,
@@ -78,7 +78,7 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={17}
-          center={center}
+          center={currLatLng}
           onLoad={(map) => onMapLoad(map)}
           options={options}
         >
@@ -98,7 +98,7 @@ export function Map({ panoData, handlePanoChange, center, data, ...props }) {
                 position={indx}
               /> */}
           {/* ) : ( */}
-          <Marker icon={loc} position={center} />
+          <Marker icon={loc} position={currLatLng} />
           {/* ); */}
           {/* })} */}
         </GoogleMap>

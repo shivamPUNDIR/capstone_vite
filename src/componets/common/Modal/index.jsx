@@ -5,14 +5,14 @@ export default function Modal(props) {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
-      <button
+      {!props.tour &&  <button
         className="absolute top-[45%] right-[10px] z-[100] px-3 py-3 mb-1 mr-1 text-sm font-bold text-white bg-sidebar-bg rounded-full"
         type="button"
         onClick={() => setShowModal(!showModal)}
       >
         <InfoIcon />
       </button>
-      {showModal ? (
+}      {showModal ? (
         <>
           <div
             className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none "

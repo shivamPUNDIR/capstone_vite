@@ -5,22 +5,19 @@ import { hotspot_data, graph } from '../../assets/hotspot_data';
 const Tour = (props) => {
     // const [currImg, setCurrImg] = useState(hotspot_data[0][0].id)
     const [currPath, setCurrPath] = useState('');
-    const [currentImage, setCurrentImage] = useState(43)
+    const [currentImage, setCurrentImage] = useState(0)
     // const ref = useRef(null)
     const bast_path = "src/assets/Tour"
     useEffect(() => {
-        console.log(currentImage)
+
         setCurrPath(bast_path + `/${currentImage}.jpg`)
+        props.setCurrLatLng({
+            lat: hotspot_data[currentImage][0].lat,
+            lng: hotspot_data[currentImage][0].lng
+        });
     }, [currentImage])
 
-    // let hotspotTooltip = (hotSpotDiv, args) => {
-    //     const imageDiv = document.createElement('div');
-    //     imageDiv.setAttribute('width', '45');
-    //     imageDiv.setAttribute('height', '45');
-    //     // imageDiv.setAttribute('src', 'https://img.icons8.com/ios/1600/circled-up-filled.png') // https://img.icons8.com/ios/1600/circled-up-filled.png
-    //     hotSpotDiv.appendChild(imageDiv);
-    //     console.log(hotSpotDiv)
-    // }
+
     let hotspotTooltip = (hotSpotDiv, args) => {
         hotSpotDiv.setAttribute("id", "textInfo");
         const outDiv = document.createElement('div');
@@ -33,6 +30,7 @@ const Tour = (props) => {
         hotSpotDiv.appendChild(outDiv);
     }
     let hanldeClickImage = () => {
+
         setCurrPath(hotspot_data[currImg])
         // setCurrPath(`${data_tour}2.jpg`)
 
@@ -69,7 +67,12 @@ const Tour = (props) => {
                         type={hotspot_data[currentImage][id]['type']}
                         pitch={hotspot_data[currentImage][id]['pitch']}
                         yaw={hotspot_data[currentImage][id]['yaw']}
-                        handleClick={(evt, name) => { setCurrentImage(elem) }}
+                        handleClick={(evt, name) => {
+                            setCurrentImage(elem);
+
+
+                        }}
+                        key={`${hotspot_data[currentImage][id]['yaw']}_${id}`}
                         name={hotspot_data[currentImage][id]['name']}
                         tooltip={hotspotTooltip}
                     // cssClass=' arrow arrow--up'

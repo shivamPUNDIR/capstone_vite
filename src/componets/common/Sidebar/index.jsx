@@ -5,14 +5,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import Modal from "../Modal";
 import { data_hostel } from '../../../assets/data_sidebar'
-const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...props }) => {
+const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, setCurrLatLng, currLatLng, ...props }) => {
   const [show, setShow] = useState(false);
 
   let hostel_box = []
   let menuPos = show === false ? "left-[15px]" : "left-[16%]"
   return (
     <>
-      <Modal data={data_hostel[currentSidebarItem]?.info} image="urkl" modal_title={data_hostel[currentSidebarItem]?.title} button_title="i" />
+      <Modal tour={tour} data={data_hostel[currentSidebarItem]?.info} image="urkl" modal_title={data_hostel[currentSidebarItem]?.title} button_title="i" />
       <div className={`absolute z-[1000000] p-3 text-sm font-bold text-white border-2 border-yellow-300 ${menuPos} top-2 bg-sidebar-bg rounded-full cursor-pointer `}
         onClick={() => { setShow(!show) }}
       >
@@ -77,20 +77,25 @@ const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...
               <h3 className="text-[white] text-3xl">Hostels</h3>
             </div> */}
             <div className="text-center w-[100%] h-auto p-2 bg-yellow-500 bg-blue-bg-btn opacity-[0.8]">
-              <h3 className="text-[white] text-3xl m-auto text-center">Hostels</h3>
+              <h3 className="text-[white] text-3xl m-auto text-center">Places</h3>
             </div>
             {
               Object.keys(data_hostel).forEach(function (prop) {
 
                 hostel_box.push(<Box
                   // onClick={() => setTour(false)}
+                  key={`hostel+${prop}`}
                   id={prop}
                   type={"data"}
                   imageUrl={data_hostel[prop].thumbnail}
                   handleClick={(item) => {
                     setTour(false);
                     setCurrentSidebarItem(item);
-                    props.setCoords(data_hostel[prop].coords)
+                    // props.setCoords(data_hostel[prop].coords)
+                    setCurrLatLng({
+                      lat: data_hostel[prop].coords.lat,
+                      lng: data_hostel[prop].coords.lng
+                    })
                   }}
                   currentSidebarItem={currentSidebarItem}
                   content={data_hostel[prop].title}
@@ -109,7 +114,7 @@ const Sidebar = ({ currentSidebarItem, setCurrentSidebarItem, tour, setTour, ...
           </div>
 
           <div
-            class=" text-white"
+            className="text-white"
             style={{
               position: "absolute",
               top: 40,

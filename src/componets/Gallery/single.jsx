@@ -13,7 +13,7 @@ const Single = props => {
             <div className="inline-block w-40 h-20 overflow-hidden rounded-lg drop-shadow-2xl m-[10px] transform hover:scale-[1.1]"
                 onClick={() => openModal(props.path)}
             >
-                <img src={props.path} alt="" srcset="" />
+                <img src={props.path} alt="" />
             </div>
 
         </>
