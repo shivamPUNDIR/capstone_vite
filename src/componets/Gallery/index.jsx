@@ -65,6 +65,7 @@ const Gallery = (props) => {
                             hfov={110}
                             autoLoad
                             showZoomCtrl={false}
+                            autoRotate={true}
                             onLoad={() => {
                                 console.log("panorama loaded");
                             }}

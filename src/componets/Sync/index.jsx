@@ -44,6 +44,7 @@ const Sync = ({ center, isLoaded, loadError, ...props }) => {
             showZoomCtrl={false}
             currLatLng={currLatLng}
             setCurrLatLng={setCurrLatLng}
+            autoRotate={true}
           />
         </div>
       }
